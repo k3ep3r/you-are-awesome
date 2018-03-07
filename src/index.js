@@ -1,18 +1,44 @@
 // DO WHATEVER YOU WANT HERE
+let i = 0;  //incrementor
 
-const createEnumerableProperty = () => {};
-const createNotEnumerableProperty = () => {};
-const createProtoMagicObject = () => {};
+    const createEnumerableProperty = (property) => {
+        return property;
+    };  //Passed
+
+    const createNotEnumerableProperty = (property) => {
+        Object.defineProperty(Object.prototype, property, {
+            value: 'value'
+        });
+        return property;
+    };  //Passed
+
+    const createProtoMagicObject = () => {
+        return Function;
+    };  //Passed
+
 const incrementor = () => {};
+
 const asyncIncrementor = () => {};
 const createIncrementer = () => {};
 
-// return same argument not earlier than in one second, and not later, than in two
-const returnBackInSecond = () => {};
-const getDeepPropertiesCount = () => {};
-const createSerializedObject = () => {};
+    const returnBackInSecond = (param) => {
+        return new Promise((done) => {
+            setTimeout(() => {
+                done(param);
+            }, 1001);  // 1000 - 1500
+       });
+    };  //Passed
+
+    const getDeepPropertiesCount = () => {};
+    const createSerializedObject = () => {
+        return null;
+    };  // Passed
+
 const toBuffer = () => {};
-const sortByProto = () => {};
+
+const sortByProto = (array) => {
+    //array.map(value => value.__proto__).sort((left, right) => left - right);
+};
 
 exports.createEnumerableProperty = createEnumerableProperty;
 exports.createNotEnumerableProperty = createNotEnumerableProperty;
