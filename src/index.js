@@ -1,5 +1,6 @@
 // DO WHATEVER YOU WANT HERE
-let i = 0;  //incrementor
+    let i = 0,  //incrementor
+        j = 0;  //asyncIncrementor
 
     const createEnumerableProperty = (property) => {
         return property;
@@ -25,7 +26,13 @@ let i = 0;  //incrementor
         return i;
     };
 
-const asyncIncrementor = () => {};
+    const asyncIncrementor = () => {
+        return new Promise((asyncInc) => {
+            setTimeout(() => {
+                asyncInc(++j);
+            }, 1);
+        });
+    };
 
     const createIncrementer = () => {
         let arr = [];
