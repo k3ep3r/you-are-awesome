@@ -16,10 +16,26 @@ let i = 0;  //incrementor
         return Function;
     };  //Passed
 
-const incrementor = () => {};
+    const incrementor = () => {
+        i++;
+        return incrementor;
+    };  //Passed
+
+    incrementor.__proto__.valueOf = function () {
+        return i;
+    };
 
 const asyncIncrementor = () => {};
-const createIncrementer = () => {};
+
+    const createIncrementer = () => {
+        let arr = [];
+            arr.value = 0;
+            arr.next = () => {
+                arr.value++;
+                return arr;
+            }
+            return arr;
+    };  //Passed
 
     const returnBackInSecond = (param) => {
         return new Promise((done) => {
@@ -29,16 +45,20 @@ const createIncrementer = () => {};
        });
     };  //Passed
 
-    const getDeepPropertiesCount = () => {};
+    const getDeepPropertiesCount = (property) => {
+        let arr = JSON.stringify(property);
+        return arr.match(/\:/g).length;
+    };
+
     const createSerializedObject = () => {
         return null;
     };  // Passed
 
-const toBuffer = () => {};
+    const toBuffer = () => {};
 
-const sortByProto = (array) => {
-    //array.map(value => value.__proto__).sort((left, right) => left - right);
-};
+    const sortByProto = (array) => {
+        return array.map(value => value.__proto__).sort((left, right) => left.__proto__ - right.__proto__);
+    };  //Passed
 
 exports.createEnumerableProperty = createEnumerableProperty;
 exports.createNotEnumerableProperty = createNotEnumerableProperty;
